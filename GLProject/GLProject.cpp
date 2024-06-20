@@ -1,5 +1,6 @@
 //to start -- following https://www.glfw.org/docs/3.3/quick.html
 #include <iostream>
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 void error_callback(int error, const char* description)
 {
@@ -23,12 +24,16 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
     GLFWwindow* mainWindow = glfwCreateWindow(800, 450, "Jonny's Window", 0, 0);
     if (!mainWindow) {
-        printf("Window doesnt exist!\n");
+        printf("GLFW window creation failed!\n");
         glfwTerminate();
         return 1;
     }
-
     glfwMakeContextCurrent(mainWindow);
+    //context MUST be made current BEFORE glew init
+    if (glewInit() != GLEW_OK) {
+        printf("GLEW init failed!\n");
+        return 1;
+    }
     glfwSetKeyCallback(mainWindow, key_callback);
 
     int frameW, frameH;
@@ -36,6 +41,7 @@ int main()
     glViewport(0, 0, frameW, frameH);//not entirely sure what this does, something to do with camera-space vs window-space
 
     glfwSwapInterval(1);//vsync
+    printf("OpenGL version: %s\n",glGetString(GL_VERSION));
     //for-ever loops are funny, I will die on this hill
     double time = 0;//clock class incoming soonTM
     for (;;){
