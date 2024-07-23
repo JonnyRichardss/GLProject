@@ -108,6 +108,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Extern;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,6 +126,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Extern;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,12 +137,52 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ShaderProgram.cpp" />
+    <None Include="mesh_data.cpp" />
+    <ClCompile Include="Extern\glm\glm.cppm" />
     <ClCompile Include="GLProject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="Ps2.frag" />
     <None Include="Shader.frag" />
-    <None Include="Shader.vert" />
+    <None Include="Ps2.vert" />
+    <None Include="packages.config" />
+    <None Include="ColouredFrag.frag" />
+    <None Include="ColouredVert.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Extern\glm\CMakeLists.txt" />
+    <Text Include="Extern\glm\copying.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Extern\glm\common.hpp" />
+    <ClInclude Include="Extern\glm\exponential.hpp" />
+    <ClInclude Include="Extern\glm\ext.hpp" />
+    <ClInclude Include="Extern\glm\fwd.hpp" />
+    <ClInclude Include="Extern\glm\geometric.hpp" />
+    <ClInclude Include="Extern\glm\glm.hpp" />
+    <ClInclude Include="Extern\glm\integer.hpp" />
+    <ClInclude Include="Extern\glm\mat2x2.hpp" />
+    <ClInclude Include="Extern\glm\mat2x3.hpp" />
+    <ClInclude Include="Extern\glm\mat2x4.hpp" />
+    <ClInclude Include="Extern\glm\mat3x2.hpp" />
+    <ClInclude Include="Extern\glm\mat3x3.hpp" />
+    <ClInclude Include="Extern\glm\mat3x4.hpp" />
+    <ClInclude Include="Extern\glm\mat4x2.hpp" />
+    <ClInclude Include="Extern\glm\mat4x3.hpp" />
+    <ClInclude Include="Extern\glm\mat4x4.hpp" />
+    <ClInclude Include="Extern\glm\matrix.hpp" />
+    <ClInclude Include="Extern\glm\packing.hpp" />
+    <ClInclude Include="Extern\glm\trigonometric.hpp" />
+    <ClInclude Include="Extern\glm\vec2.hpp" />
+    <ClInclude Include="Extern\glm\vec3.hpp" />
+    <ClInclude Include="Extern\glm\vec4.hpp" />
+    <ClInclude Include="Extern\glm\vector_relational.hpp" />
+    <ClInclude Include="Extern\mapbox\earcut.hpp" />
+    <ClInclude Include="Extern\tiny_obj_loader.h" />
+    <ClInclude Include="ShaderProgram.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
